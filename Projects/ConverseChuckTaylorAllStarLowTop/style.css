@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+
+.product {
+  border: 5px solid black;
+  width: 825px;
+  margin: 50px auto;
+  position: relative;
+}
+.product-title {
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #f7f7f7;
+  font-size: 22px;
+  padding: 15px;
+  /* margin-bottom: 20px; */
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.shipping {
+  color: #777;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.more-info {
+  font-weight: bold;
+}
+
+/*UVIK NAM IDE OVIM REDOSLJEDOM LINK, VISITED, HOVER, ACTIVE*/
+.more-info:link,
+.more-info:visited {
+  color: black;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.more-info:hover,
+.more-info:active {
+  text-decoration: none;
+}
+
+.details-title {
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.details-list {
+  list-style-type: square;
+  margin-left: 20px;
+}
+
+.add-to-cart {
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.add-to-cart:hover {
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  border-top: 4px solid black;
+}
+
+.some-text {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.details-list li {
+  margin-bottom: 10px;
+}
+
+h2::before {
+  content: "SALE";
+  font-size: 12px;
+  color: white;
+  background-color: red;
+  position: absolute;
+  top: -17px;
+  left: -34px;
+  padding: 7px 15px;
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+
+.color {
+  background-color: black;
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.color-black {
+}
+
+.color-blue {
+  background-color: blue;
+}
+
+.color-red {
+  background-color: red;
+}
+
+.color-yellow {
+  background-color: yellow;
+}
+.color-green {
+  background-color: green;
+}
+.color-brown {
+  background-color: brown;
+}
