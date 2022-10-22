@@ -1,0 +1,294 @@
+/*kada imamo neki konflikt vise istih stvari definirano u istim selektorima najvazniji je ID (ako ih imamo vise zadnji se primjenuje), 
+CLASS, PSEUDO CLASS pa ELEMENT (p,div,li) "!important! je hack koji koristimo za resolvanje konflikta OVO NE KORISTIT*/
+/*INHERETED STYLEovi se lako OVERWRITTEN ingereted values imaju najmanji prioritet*/
+/* "*" --> aplajamo na sve njega je najlakse OVERWRITEATI*/
+/* * {
+  border-top: 10px;
+} */
+
+/* CSS BOX MODEL
+  content --> text, image i slicno... content ima height i width ovo definiramo s CSSom
+  border --> linija oko elementa ( i dalje unutar elementa ) BORDER JE VIZIBUL NA STRANICI
+  padding --> nevidljivi prostor oko contenta... ovo je izmedu contenta i bordera (padding je isto i dalje unutar elementa)
+  margin --> prazam elelemt izvan elementa, izmedu elemenata... MARGIN koristimo za kreiranje prostora izmedu elemenata...........
+  fill area --> prostor koji se popunjava s background colorom ili background image-em
+  FINAL ELEMENT WIDTH = left border + left padding + width + right padding + right borde
+  FINAL ELEMENT HEIGHT = top border + top padding + height + bottom padding + bottom border
+*/
+
+/*COLAPSING MARGINS samo je jedna vidljiva i to najcesce ona veca*/
+
+/*za dodavanje space-a unutar elementa koristimo padding a izvan elementa koristimo margin*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  color: #444;
+  border-top: 10px solid #1098ad;
+  position: relative;
+}
+
+.main-header {
+  background-color: #f7f7f7; /* BACKGROUND COLOR*/
+  /* padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px; */
+  padding: 20px 40px;
+  margin-bottom: 60px; /* uvik na bottom stavljamo margin */
+  height: 80px;
+}
+
+.post-header {
+  margin-bottom: 40px;
+}
+
+h1,
+h2,
+h3 {
+  color: #1098ad;
+  /* position: relative; */
+}
+
+/* h1 nazivamo selektor */
+h1 {
+  font-size: 26;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+p {
+  font-size: 22px;
+  /* LINE HEIGHT * FONT SIZE */
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+ul,
+ol {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+li {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* DESCENDING ELEMENTI ODABRAT CEMO SVE P ELEMENTE UNUTAR FOOTER ELEMENTA */
+/* footer p {
+  font-size: 16px;
+} */
+
+/* article header p {
+  font-style: italic;
+} */
+
+/* UMISTO LINIJE IZNAD  ID mora biti unique*/
+/*u CSSu crticama razdvajamo kada imamo vise rici*/
+#author {
+  font-style: italic;
+  font-size: 18px;
+}
+
+#copyright {
+  font-size: 16px;
+}
+
+/* za selektati KLASU koristimo "."  ID koristimo kada zelimo prominiti samo jedan element a CLASS kada zelimo prominiti vise elemenata
+u praksi vise koristimo CLASSe nego IDeve*/
+.related-author {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*micanje bullet pointa */
+.related-posts-list {
+  list-style: none;
+}
+
+article {
+  margin-bottom: 60px;
+}
+
+aside {
+  background-color: #f7f7f7;
+  /* border: 5px solid #1098ad; zatvaramo ovaj blok aside u border */
+  border-top: 5px solid #1098ad;
+  border-bottom: 5px solid #1098ad;
+  padding: 50px 0;
+  width: 500px;
+}
+
+/* body {
+   background-color: orange; 
+} */
+
+/*za ":" definiramo peseudo klasu*/
+li:first-child {
+  /*prvo dite*/
+  font-weight: bold;
+}
+li:last-child {
+  font-style: italic; /*zadnje dite*/
+}
+
+/* u CSSu brojanje krece od 1 u zagrade mozemo dodati i parne i neparne brojeve*/
+/* li:nth-child(even) {
+  color: red;
+} */
+
+/*Styling lings*/
+a:link {
+  color: #1098ad;
+  text-decoration: none; /*da se rijesimo donje crte*/
+}
+
+a:visited {
+  /*kad kliknemo na link stavili smo mu neku boju*/
+  color: #1098ad;
+}
+
+a:hover {
+  /*kada pokrijemo misem*/
+  color: orangered; /*dodajemo boju*/
+  font-weight: bold; /*s font-weight boldamo*/
+  text-decoration: underline orangered; /*dekoriramo dodajemo tockice ispod kad pokrijemo misem i dodajemo boju*/
+}
+
+a:active {
+  /* ovo je dok drzimo link */
+  background-color: black;
+  font-style: italic;
+}
+
+/* RESOLVING CONFLICTS*/
+/* #copyright {
+  color: red;
+}
+.copyright {
+  color: blue;
+}
+.text {
+  color: yellow;
+}
+footer p {
+  color: green;
+} */
+
+nav {
+  font-size: 18px;
+  text-align: center;
+}
+
+.post-img {
+  width: 100%; /*kada width stavimo u postocima width je onda width parent kontenjera*/
+  height: auto;
+}
+
+/* centriranje sadržaja */
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+nav a:link {
+  /*background-color: orangered;
+  margin: 20px;  na anchor elementu ne kreira se nikakav vertical space
+  padding: 20px;
+  display: block;*/
+
+  margin-right: 30px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/*image su inline blok elementi*/
+nav a:link:last-child {
+  margin-right: 0;
+}
+
+/* pozicioniranje*/
+/*APSOLUTNO POZICIONIRANJE KORISTIMO ZA MALE ELEMENTE*/
+button {
+  font-size: 22px;
+  padding: 20px;
+  cursor: pointer;
+
+  /*APSOLUTNO POZICIONIRANJE */
+  /*top i left 50px znaci da smo ga makli 50px od vrha i od livo*/
+  /* parent element mora biti position relavite*/
+  position: absolute;
+  /* top: 50px;
+  left: 50px; */
+  bottom: 50px;
+  right: 50px;
+}
+
+/*pseudo elemenete pisemo sa "::" */
+/* sibling je element koji je dio istog roditelja*/
+
+h1::first-letter {
+  font-style: normal;
+  margin-right: 15px;
+}
+
+/* p::first-line {
+  color: red;
+} */
+
+/*adjecent sibling je sljedeci sibling u nizu*/
+
+/* + je adjecent sibling selektor*/
+/* svaki psudo element je inline element*/
+h3 + p::first-line {
+  color: red;
+}
+
+h2 {
+  /* background-color: orange; */
+  position: relative;
+}
+
+h2::after {
+  content: "TOP";
+  background-color: #ffe70e;
+  color: #444;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px;
+  position: absolute;
+  top: -10px;
+  right: -25px;
+}
+
+/* GOOGLANJE I CITANJE DOKUMENTACIJE
+- PRVO GLEDAT STACK OVERFLOW
+- mdn dokumentacija za CSS je isto super
+- HTML validator
+-diffchecker
+*/
